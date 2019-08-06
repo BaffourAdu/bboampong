@@ -14,11 +14,11 @@ module.exports = {
   siteUrl: 'https://bboampong.netlify.com/',
   social: {
     // leave the social media you do not want to appear as empty strings
-    twitter: '',
+    twitter: 'https://twitter.com/baffourboampong',
     medium: '@baffouraduboampong',
-    facebook: '',
-    github: '',
-    linkedin: '',
+    facebook: 'https://www.facebook.com/baffouraduboampong',
+    github: 'https://github.com/BaffourAdu',
+    linkedin: 'https://www.linkedin.com/in/baffour-adu-boampong/',
     instagram: '',
   },
 }
