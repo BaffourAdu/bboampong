@@ -1,5 +1,5 @@
 ---
-title: "Task Scheduling(CRON) in Laravel 5"
+title: "Task Scheduling (CRON) in Laravel 5"
 description: "In the past, generating a Cron entry required each task to be scheduled on your server. Laravel’s task scheduling feature gives you the…"
 date: "2019-08-06T16:54:58.194Z"
 categories: []
