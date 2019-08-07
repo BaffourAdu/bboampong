@@ -2,7 +2,9 @@
 title: "forLoopGhana Anniversary Edition: User Centered Product Design"
 description: "forLoopGhana turns 1 in November! Unbelievable right? November is going to mark one year since forloopGhana started 🔥, since then there…"
 date: "2018-10-24T12:03:56.168Z"
-categories: []
+categories: [
+  community
+]
 published: true
 canonical_link: https://medium.com/@baffouraduboampong/forloopghana-anniversary-edition-user-centered-product-design-5002b802ed9a
 redirect_from:

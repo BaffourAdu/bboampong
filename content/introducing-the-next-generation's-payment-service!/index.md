@@ -2,7 +2,9 @@
 title: "Introducing the Next Generation’s Payment Service!"
 description: "Epay is a payment service that makes it easier for African businesses to securely accept online payments (both local and International)…"
 date: "2018-11-10T15:58:42.448Z"
-categories: []
+categories: [
+  startup
+]
 published: true
 canonical_link: https://medium.com/@baffouraduboampong/introducing-the-next-generations-payment-service-3fa434b742f1
 redirect_from:
@@ -37,7 +39,7 @@ We’re focused on making it super easy and flexible for Africa Businesses to ac
 
 ### Who can use Epay?
 
-Anybody looking to sell products or service globally, that is, a freelancer can use the service to accept payments from customers around the world,an online service can take their subscription fees through epay, an event manager can simply create a payment page to sell tickets and even use Epay for event registration. There are a lot of use cases as Epay makes it super easy to receive payments from customers around the world. Your customers can pay via Visa, Master Card, MTN mobile money (Ghana), Vodafone Cash (Ghana), AirtelTigo mobile money(Ghana) and many more.
+Anybody looking to sell products or service globally, that is, a freelancer can use the service to accept payments from customers around the world,an online service can take their subscription fees through epay, an event manager can simply create a payment page to sell tickets and even use Epay for  event registration. There are a lot of use cases as Epay makes it super easy to receive payments from customers around the world. Your customers can pay via Visa, Master Card, MTN mobile money (Ghana), Vodafone Cash (Ghana), AirtelTigo mobile money(Ghana) and many more.
 
 ### How do I signup?
 
@@ -47,4 +49,4 @@ Epay is currently only available via the web. Head to [www.epaygh.com](http://ww
 
 Epay is still in the early stages and your feedback and suggestions are highly welcome. Over the next few weeks, we will be working closely with other developers to enhance our developer platform. Also, we would be improving the user experience to make it more easy for customers of businesses with no online payment experience make their first time payment and lastly, improve and fix bugs when the need arises.
 
-We would love to hear your feedback on how we can improve our service. You can talk us via info@epaygh.com or send me an email personally via baffouraduboampong@gmail.com.
+We would love to hear your feedback on how we can improve our service. You can talk us via info@epaygh.com or hit me up personally.

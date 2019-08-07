@@ -2,7 +2,9 @@
 title: "Task Scheduling (CRON) in Laravel 5"
 description: "In the past, generating a Cron entry required each task to be scheduled on your server. Laravel’s task scheduling feature gives you the…"
 date: "2019-08-06T16:54:58.194Z"
-categories: []
+categories: [
+  laravel
+]
 published: true
 canonical_link: https://medium.com/@baffouraduboampong/task-scheduling-cron-in-laravel-5-85935b8a7a89
 redirect_from:
@@ -11,9 +13,9 @@ redirect_from:
 
 ![](./asset-1.jpeg)
 
-In the past, generating a Cron entry required each task to be scheduled on your server. Laravel’s task scheduling feature gives you the full power of CRON in a fluent API without having to SSH into your server to add additional Cron entries. It allows you to fluently and expressively define your task schedule within Laravel itself.
+In the past, adding Cron entries required SSHing into your server to add each entry or task. Laravel’s task scheduling feature gives you the full power of CRON in a fluent API without having to SSH into your server to add additional Cron entries. It allows you to fluently and expressively define your task schedule within Laravel itself.
 
-Personally, I never really understood CRON and felt it might be too difficult to set up without CPanel or on a VPS Server. In this article, I have clearly defined (to the best of my knowledge) what CRON is and how you can take advantage of it in your Laravel application.
+Personally, I never really understood CRON and felt it might be too difficult to set up without CPanel or on a VPS Server but after trying out Laravel’s Task Scheduling feature, I was blown away by its simplicity. In this article, I set out to define (to the best of my knowledge) what CRON is and how you can take advantage of it in your Laravel application.
 
 ---
 
@@ -31,7 +33,7 @@ You communicate with this scheduling daemon using **_crontab files_**. Crontab (
 
 When using the inbuilt Laravel task scheduler, you only need to add the following Cron entry to your server;
 
-**_\* \* \* \* \* php /path-to-your-project schedule:run >> /dev/null 2>&1_**
+**_\* \* \* \* \* php <span style="color:red">/path-to-your-project</span> schedule:run >> /dev/null 2>&1_**
 
 To add the CRON entry, run “**_crontab -e_**” in your terminal to edit your crontab file. Add the above CRON entry to the end of the file. The above CRON entry will inform the CRON daemon to run the “**_php artisan schedule:run_**” artisan command every minute, pretty easy right? You only have to register one CRON job in your crontab and Laravel takes care of the rest under the hood.
 
@@ -43,6 +45,6 @@ To define your scheduled commands, add them inside the schedule method of _Conso
 
 ![](./asset-2.png)
 
-**NB:** The above code assumes you have added the **_Mail Facade_**_(use Illuminate\\Support\\Facades\\Mail), have an_ **_email view template_** _in your emails folder inside your views called send.blade.php_ and have **mail services already configured** in your application.
+> **NB:** The above code assumes you have added the **_Mail Facade_**_(use Illuminate\\Support\\Facades\\Mail), have an_ **_email view template_** _in your emails folder inside your views called send.blade.php_ and have **mail services already configured** in your application.
 
 Voila! You should receive an email from your application every 5 minutes. To know more about the scheduling methods Laravel provides, head to the [_official documentation_](https://laravel.com/docs/5.8/scheduling)

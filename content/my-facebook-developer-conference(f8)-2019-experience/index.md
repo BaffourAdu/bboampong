@@ -1,8 +1,10 @@
 ---
-title: "My Facebook Developer Conference(F8) 2019 Experience"
+title: "My Facebook Developer Conference (F8) 2019 Experience"
 description: "About three (3) and a half years ago I struggled to build websites with HTML & CSS. Fast forward to today, I have been to Silicon Valley ☺…"
 date: "2019-05-22T15:27:48.672Z"
-categories: []
+categories: [
+  experiences
+]
 published: true
 canonical_link: https://medium.com/@baffouraduboampong/my-facebook-developer-conference-f8-2019-experience-f76c70efcb24
 redirect_from:
@@ -66,7 +68,7 @@ With more than 5,000 developers, creators and entrepreneurs from around the worl
 
 ![The Conference Venue at night, McEnery Convention Center, San Jose](./asset-7.jpeg)
 
-For all the hackathon participants, the day ended with Mark Zuckerberg passing by during the judging session to listen to the solutions built. Later in the day, 8 out of 42 teams qualified to the final stages of the competition. These 8 finalists pitched their solutions to us all, where we also got to vote for our favorite solution. You can also watch the finalists pitch their solutions [here](https://developers.facebook.com/videos/2019/f8-2019-hackathon-finalist-pitches/).
+For all the hackathon participants, the day ended with Mark Zuckerberg passing by during the judging session to listen to the solutions built. Later in the day, 8 out of 42 teams qualified to the  final stages of the competition. These 8 finalists pitched their solutions to us all, where we also got to vote for our favorite solution. You can also watch the finalists pitch their solutions [here](https://developers.facebook.com/videos/2019/f8-2019-hackathon-finalist-pitches/).
 
 ![My dream in 2016 was for me to meet Mark Zuckerberg, in a picture](./asset-8.jpeg)
 
