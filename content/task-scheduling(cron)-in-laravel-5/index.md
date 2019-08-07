@@ -25,7 +25,7 @@ CRON is a scheduling daemon that executes tasks at specified intervals. These ta
 
 For example, you could set a CRON job to backup your databases or data, update your system with the latest security patches, check your disk space usage, send emails and more. A more practical example will be a large SaaS application that selects 10 random customers every hour during the weekend and offers them a discount. Creating a job or a script for sending the discount can be pretty easy but we need a way to run it every hour and only on weekends. That’s where CRON comes in handy.
 
-You communicate with this scheduling daemon using **_crontab files_**. Crontab (CRON table) is a text file that specifies the schedule of CRON Jobs. Although you can edit the user crontab files manually, it is recommended to use the “**_crontab_**” command. 
+You communicate with this scheduling daemon using `crontab files`. Crontab (CRON table) is a text file that specifies the schedule of CRON Jobs. Although you can edit the user crontab files manually, it is recommended to use the `crontab` command. 
 
 > If you are a geek like me and want to know more about CRON Jobs such as the cronjob syntax and many more, read more [_here_](https://linuxize.com/post/scheduling-cron-jobs-with-crontab/). You can use a tool like [_crontab.guru_](https://crontab.guru/) for advanced use-cases and a better understanding of how your scheduled tasks are going to run.
 
@@ -35,19 +35,19 @@ You communicate with this scheduling daemon using **_crontab files_**. Crontab (
 
 When using the inbuilt Laravel task scheduler, you only need to add the following Cron entry to your server;
 
-```bash
+```shell
   php /path-to-your-project schedule:run >> /dev/null 2>&1
 ``` 
 
 To add the CRON entry, run the command below in your terminal to edit your crontab file. 
 
-```bash
+```shell
   crontab -e
 ``` 
 
 Add the above CRON entry to the end of the file. The above CRON entry will inform the CRON daemon to run the artisan command below every minute.
 
-```bash
+```shell
   php artisan schedule:run
 ``` 
 
@@ -57,7 +57,7 @@ Pretty easy right? You only have to register one CRON job in your crontab and La
 
 ### Defining a Scheduled Task
 
-To define your scheduled commands, add them inside the schedule method of _Console kernel_ located at _App\\Console\\Kernel.php_. To try it out, add the code below to your schedule method;
+To define your scheduled commands, add them inside the schedule method of `Console kernel` located at `App\\Console\\Kernel.php`. To try it out, add the code below to your schedule method;
 
 ```php 
 <?php
