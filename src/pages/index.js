@@ -30,6 +30,7 @@ const BlogIndexPage = ({ data: { allMdx } }) => (
         </Link>
       </Section>
     ))}
+         
   </Layout>
 )
 

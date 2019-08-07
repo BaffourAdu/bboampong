@@ -2,12 +2,12 @@ module.exports = {
   // the name of your website
   title: 'Baffour Adu Boampong',
   // the description of the website (eg. what shows on Google)
-  description: "Personal blog of Baffour Adu Boampong focused on software development, random thoughts, experiences and technology related activities across Africa",
+  description: 'Personal blog of Baffour Adu Boampong focused on software development, random thoughts, experiences and technology related activities across Africa',
   // a short bio shown at the bottom of your blog posts
   // It should complete the sentence: Written by Baffour Adu Boampong ...
-  shortBio: '',
+  shortBio: '(building epaygh.com & weflyp.com)',
   // a longer bio showing on the landing page of the blog
-  bio: `Software Engineer with experience in building Web-based applications such as Managements Systems, Payment Platforms, and APIs | Community Organizer @ ForLoopGhana  | Aspiring Entrepreneur | Problem Solver`,
+  bio: 'Software Engineer with experience in building Web-based applications such as Managements Systems, Payment Platforms, and APIs | Community Organizer @ ForLoopGhana  | Aspiring Entrepreneur | Problem Solver',
   author: 'Baffour Adu Boampong',
   githubUrl: 'https://github.com/BaffourAdu/bboampong',
   // replace this by the url where your website will be published

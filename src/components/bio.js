@@ -57,7 +57,7 @@ function Bio() {
         {shortBio ? ` ${shortBio}` : ''}.{` `}
         {social.twitter ? (
           <a href={`https://twitter.com/${social.twitter}`}>
-            You should follow them on Twitter.
+            Follow me on Twitter
           </a>
         ) : null}
       </p>
