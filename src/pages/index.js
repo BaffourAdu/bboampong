@@ -20,7 +20,7 @@ const BlogIndexPage = ({ data: { allMdx } }) => (
     {allMdx.nodes.map(post => (
       <Section key={post.fields.slug} name={post.fields.slug} centered>
         <Link to={post.fields.slug} className="blog-listing">
-          <h1>{post.frontmatter.title}</h1>
+          <h2>{post.frontmatter.title}</h2>
           <p>
             {formatPostDate(post.frontmatter.date)}
             {` • ${formatReadingTime(post.timeToRead)}`}

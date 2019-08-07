@@ -89,7 +89,10 @@ export default function PageTemplate({ data: { mdx, site }, pageContext }) {
                 </Link>
               )}
             </li>
-            <li>
+            <li style={{
+              paddingTop: 15,
+              float: "right"
+            }}>
               {next && (
                 <Link to={next.fields.slug} rel="next">
                   {next.frontmatter.title} →

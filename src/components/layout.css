@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
 body,
 html {
   margin: 0;
@@ -20,14 +22,11 @@ body {
   line-height: 1.6;
   font-size: 2.1rem;
   font-weight: 400;
-  font-family: -apple-system, BlinkMacSystemFont, Avenir, 'Avenir Next',
-    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans',
-    'Helvetica Neue', sans-serif;
+  font-family: 'Nunito', sans-serif;
   height: 100%;
-  background: #ffffff;
+  background: #F7FAFC;
 
-  color: rgba(0, 0, 0, 0.84);
-  text-rendering: optimizeLegibility;
+  color: #4a5568;
 }
 
 h1,
@@ -37,7 +36,7 @@ i,
 a,
 .first-letter,
 .authorName a {
-  color: rgba(0, 0, 0, 0.84);
+  color: #2d3748;
   text-rendering: optimizeLegibility;
 }
 
@@ -63,7 +62,6 @@ h2 {
   margin: 56px 0 -13px -1.883px;
   text-align: left;
   line-height: 34.5px;
-  letter-spacing: -0.45px;
 }
 
 p,
@@ -71,8 +69,9 @@ i,
 a {
   margin-top: 21px;
   font-size: 21px;
-  letter-spacing: -0.03px;
   line-height: 1.58;
+
+  color: #4a5568;
 }
 
 a {
@@ -157,6 +156,7 @@ h5,
 h6 {
   position: relative;
 }
+
 .anchor {
   position: absolute;
   left: -30px;
@@ -176,9 +176,11 @@ h6:hover .anchor {
 h1 .anchor {
   margin-top: 21px;
 }
+
 h3 .anchor {
   margin-top: 5px;
 }
+
 h4 .anchor {
   margin-top: 2px;
 }

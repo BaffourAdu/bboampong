@@ -1,0 +1,15 @@
+
+.error-page {
+    height: 100vh;     
+    text-align: center;
+    padding-top: 60px
+}
+
+.error-code {
+    font-size: 100px;
+}
+
+.error-code-message {
+    font-size: 30px;
+    font-weight: bold
+}

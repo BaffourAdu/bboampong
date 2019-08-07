@@ -1,6 +1,6 @@
 .main-bio-container {
   display: flex;
-  margin-top: 10em;
+  margin-top: 5em;
 }
 .main-bio {
   flex: 0 0 80%;
@@ -11,16 +11,16 @@
 }
 
 .horizontal-links svg {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
 }
 
 .horizontal-links svg path {
-  fill: rgba(0, 0, 0, 0.48);
+  fill: #A0AEC0;
 }
 
 .main-bio-container svg:hover path {
-  fill: #7dffb3;
+  fill: #6B46C1;
 }
 
 @media (max-width: 1024px) {
