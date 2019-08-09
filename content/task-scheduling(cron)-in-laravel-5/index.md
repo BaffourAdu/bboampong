@@ -13,6 +13,8 @@ redirect_from:
 
 ![](./asset-1.jpeg)
 
+---
+
 In the past, adding Cron entries required SSHing into your server to add each entry or task. Laravel’s task scheduling feature gives you the full power of CRON in a fluent API without having to SSH into your server to add additional Cron entries. It allows you to fluently and expressively define your task schedule within Laravel itself.
 
 Personally, I never really understood CRON and felt it might be too difficult to set up without CPanel or on a VPS Server but after trying out Laravel’s Task Scheduling feature, I was blown away by its simplicity. In this article, I set out to define (to the best of my knowledge) what CRON is and how you can take advantage of it in your Laravel application.
