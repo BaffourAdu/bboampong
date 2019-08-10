@@ -62,7 +62,10 @@ Pretty easy right? You only have to register one CRON job in your crontab and La
 To define your scheduled commands, add them inside the schedule method of `Console kernel` located at `App\\Console\\Kernel.php`. To try it out, add the code below to your schedule method;
 
 ```php 
+// App\Console\Kernel.php
+
 <?php
+
   /*
   * Define the application's command schedule.
   *
