@@ -3,7 +3,7 @@ title: "How to build a GraphQL Server using Laravel - Part 1"
 description: "In the past, generating a Cron entry required each task to be scheduled on your server. Laravel’s task scheduling feature gives you the…"
 date: "2019-08-10T16:54:58.194Z"
 categories: [
-  laravel
+  laravel, GraphQL
 ]
 published: true
 ---
