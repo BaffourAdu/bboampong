@@ -1,9 +1,9 @@
 ---
 title: "How to build a GraphQL Server using Laravel - Part 1"
-description: "In the past, generating a Cron entry required each task to be scheduled on your server. Laravel’s task scheduling feature gives you the…"
+description: "If you are afraid or think the word GraphQL sounds complicated and difficult, it isn't anymore. It isn't just the new kid on the block…"
 date: "2019-08-10T16:54:58.194Z"
 categories: [
-  laravel, GraphQL
+  laravel, GraphQL, APIs
 ]
 published: true
 ---
@@ -15,7 +15,7 @@ published: true
 API's have evolved and continue to evolve, of course. Stepping into modern API development and infrastructure can be tough with so many acronyms such as `SOAP, REST & GraphQL` running around. In this series, we are going to look at how to build our own GraphQL server using Laravel. To make the series very easy to follow, i have divided it into 3 articles / parts.
 
 * [Part 1: What is GraphQL and it's advantages? GraphQl vs REST](/how-to-build-a-graphql-server-using-laravel-part-1)
-* [Part 2: Setup our laravel Project](/#)
+* [Part 2: Setup our Laravel Project](/how-to-build-a-graphql-server-using-laravel-part-2)
 * [Part 3: Setup our GraphQL Server & Playground in our project](/#)
 
 ## Why GraphQL?
@@ -28,9 +28,9 @@ Most of us have been creating and using REST APIs for a long time now so one may
 
 GraphQL clients control the data they get, not the server, making it easier for APIs to evolve over time. While typical REST APIs require loading from multiple URLs or endpoints, GraphQL APIs get all the data your app needs in a single request to a single endpoint. 
 
-With GraphQL the goal is to create a `/graphql` endpoint without removing the REST endpoints. The GraphQL endpoint will hit the database directly to fetch data, so that it is totally independant from the REST logic.
+With GraphQL the goal is to create a `/graphql` endpoint without removing the REST endpoints. The GraphQL endpoint will hit the database directly to fetch data, so that it is totally independent from the REST logic.
 
-## Graphql vs. REST: Why is GraphQL better?
+## GraphQL vs. REST: Why is GraphQL better?
 1. REST requests often leads to over or under retrieval of information because endpoints return fixed data structures. Say you have a user resource on the back-end with first name, last name, email, and 10 other fields. On the client, you only need `first name, last name and email`. Making a REST call on the `/users` endpoint gives you back all the fields of the user, and the client only uses the ones it needs. There is clearly some data transfer waste, which might be too much load on mobile clients. 
 
     A similar query for GraphQL will be ;
@@ -77,7 +77,7 @@ There are a number of companies that use GraphQL at scale. This includes;
 - Intuit
 - Shopify, etc.
 
-## SOAP, REST, Graphql : Which one should I choose?
+## SOAP, REST, GraphQL : Which one should I choose?
 No API format is a silver bullet. They all have their strengths and weaknesses. Deciding on the one to use depends on the need. When considering which one is right for you, consider what clients you will be supporting and how flexible you need to be. I would advise you consider the following;
 - For **SOAP**, it's use in certain situations, but is largely overshadowed as the veteran of the industry.
 - **REST** remains the go-to technology for most public APIs becuase it's more popular and most developers are used to it
@@ -85,9 +85,10 @@ No API format is a silver bullet. They all have their strengths and weaknesses. 
 
 **Note, it's possible to try GraphQL without throwing away your REST infrastructure.** 
 
+## Conclusion
 I hope you enjoyed this article as in this part of the series, we got to know what GraphQL is, it's advantages and compared it to REST. Want to know more about GraphQL? Visit the [official documentation](https://graphql.org/) for more information. 
 
-In the next part of this series, we will look at how to setup a mini Laravel blog after which we will develop GraphQL APIs for. Feel free to hit me up with your views, comments or questions.
+In the next part of this series, we will look at how to setup a project in Laravel after which we will develop GraphQL APIs for. Feel free to hit me up with your views, comments or questions.
 
 
 
