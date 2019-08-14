@@ -23,15 +23,15 @@ As mentioned in the previous article, this series is divided into 3 parts:
 In this project we’ll be building an API for a micro blog with which `users` can write `articles`. Furthermore, we would restrict certain features or functionality to only authenticated users.
 
 ## Prerequisites
-To follow through this article, you’ll need the following:
-* [**PHP**](https://www.php.net/) installed on your machine
-* [**MYSQL**](https://www.mysql.com/) installed on your machine
-* [**Composer**](https://getcomposer.org/) installed on your machine
+To follow through this article, you’ll need the following installed on your machine:
+* [**PHP**](https://www.php.net/) 
+* [**MYSQL**](https://www.mysql.com/) 
+* [**Composer**](https://getcomposer.org/) 
 
 ## Creating the Project
-To begin, let's create a new Laravel project via Composer with the command below:
+To begin, let's create a new Laravel project via Composer by executing command below in our terminal:
 
-```
+```bash    
 composer create-project --prefer-dist laravel/laravel laravel-graphql-blog
 
 ```
@@ -58,7 +58,7 @@ DB_DATABASE=homestead
 DB_USERNAME=homestead
 DB_PASSWORD=secret
 ```
-> Note: The above assumes you have already created a MySQL database for this project.
+> **Note:** The above assumes you have already created a MySQL database for this project.
 
 ## Creating our Models and Migrations
 Laravel by default ships with a user model and it's migration file. We would want to include an `api_token` column to our User migration file for our api authentication therefore, let’s edit out this migration:
@@ -104,7 +104,7 @@ class CreateUsersTable extends Migration
 }
 ```
 
-Voila! Now, let’s create an Article model and its corresponding migration file. To do that, run the command below:
+Voila! Now, let’s create an Article model and its corresponding migration file. To do that, run the command below in the terminal:
 
 ```bash
 php artisan make:model Article -m
@@ -142,7 +142,7 @@ public function up()
 >
 > **Note:** The up method is used to add new tables, columns, or indexes to your database, while the down method should reverse the operations performed by the up method.
 
-Now, let’s run the migration by executing the command below:
+Now, let’s run the migration by executing the command below in the terminal: 
 ```
 php artisan migrate
 ```
@@ -238,7 +238,7 @@ class Article extends Model
 
 ## Setting Database seeders
 To test the API we are about to create, we need to have some data to work with. To do this, let’s create a database seeder to populate the tasks table with some data. 
-We’ll start by creating some seeder classes for our `users` table. To do that, let's run the command below:
+We’ll start by creating some seeder classes for our `users` table. To do that, let's run the command below in the terminal:
 ```bash
 php artisan make:seeder UsersTableSeeder 
 
@@ -247,6 +247,8 @@ php artisan make:seeder UsersTableSeeder
 
 The command above will generate a new file called `UsersTableSeeder.php` file in the `database/seeds` directory. Now let's update it with with the following:
 ```php
+// database/seeds/UsersTableSeeder.php
+
 <?php
 
 use App\User;
@@ -283,13 +285,15 @@ class UsersTableSeeder extends Seeder
 ```
 > In the above code, our `UsersTableSeeder` would first create a `User` with a random name but with an email of `me@mygraphqlapp.com` and password of `secret`. 
 >
-> Furthermore, using our default `User` [factories](https://laravel.com/docs/5.8/seeding#using-model-factories) which is located in the `database/factories` directory, we create `50 dummy Users` and for each one of these 50 users, we create `5 dummy articles` under them.
+> Furthermore, using our default `User` [factories](https://laravel.com/docs/5.8/seeding#using-model-factories) which is located in the `database/factories` directory, we create `50 dummy users` and for each one of these `50 users`, `5 dummy articles` are created under them.
 
-Finally, let’s go ahead and run our database seeders to get some data into our database:
+Finally, let’s go ahead and run our database seeders to get some data into our database by running the command below in the terminal:
 
 ```bash
 php artisan db:seed
 ```
 
 ## Conclusion
-In this article, we learn't how to setup a Laravel projected and created a micro blog. We've only setup up our Laravel project and in the next series, we would be building out our GraphQL API. Feel free to hit me up with your views, comments or questions. Stay tuned!
+That's all for this part of the series. In this article, we've learn't how to setup a Laravel projected and created a micro blog. We've only setup up our Laravel project and in the next series, we would be building out our GraphQL API. 
+
+Feel free to hit me up with your views, comments or questions. Stay tuned!
