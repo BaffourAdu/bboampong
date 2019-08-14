@@ -3,14 +3,13 @@ const config = require('./config')
 module.exports = {
   siteMetadata: config,
   plugins: [
-    'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'UA-145379567-1',
-        cookieDomain: 'https://baffouraduboampong.me',
+        trackingId: "UA-145379567-1",
       },
     },
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
