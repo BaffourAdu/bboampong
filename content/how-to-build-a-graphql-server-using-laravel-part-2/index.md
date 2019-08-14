@@ -294,6 +294,6 @@ php artisan db:seed
 ```
 
 ## Conclusion
-That's all for this part of the series. In this article, we've learn't how to setup a Laravel projected and created a micro blog. We've only setup up our Laravel project and in the next series, we would be building out our GraphQL API. 
+That's all for this part of the series. In this article, we've learn't how to setup a Laravel projected and created a micro blog. We've only setup up our Laravel project and in the next part of the series, which is the last part, we would be building out our GraphQL API. 
 
 Feel free to hit me up with your views, comments or questions. Stay tuned!
