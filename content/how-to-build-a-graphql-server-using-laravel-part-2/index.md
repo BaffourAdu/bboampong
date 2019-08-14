@@ -41,7 +41,7 @@ composer create-project --prefer-dist laravel/laravel laravel-graphql-blog
 The result is a new directory called `laravel-graphql-blog` inside the folder we ran the `composer create` command. Don't worry if you are new to Laravel's structure. You will learn the role of the most important directories and files as we build or you can head over to the [official documentation here](https://laravel.com/docs/5.8/structure).
 
 Just to make sure we have everything working, run the commands below in your terminal to boot up our server:
-``` bash
+```bash
 cd laravel-graphql
 php artisan serve
 
@@ -61,7 +61,7 @@ DB_PASSWORD=secret
 > Note: The above assumes you have already created a MySQL database for this project.
 
 ## Creating our Models and Migrations
-Laravel by default ships with a user model and it's migration file. We would want to include an `api_token` column to our User migration file for our api authentication therefore, let’s edit out this migration file located at `database/migrations/2014_10_12_000000_create_users_table.php`:
+Laravel by default ships with a user model and it's migration file. We would want to include an `api_token` column to our User migration file for our api authentication therefore, let’s edit out this migration:
 ```php
 // database/migrations/2014_10_12_000000_create_users_table.php
 
@@ -150,7 +150,7 @@ php artisan migrate
 Next, let’s define the relationships between our models. Take note, we’ll be defining only the necessary parts of the relationships needed for the purpose of this tutorial. 
 
 To do so, let's update our models by defining the necessary relationships starting with our User Model:
-```php
+```php {1-2,22}
 // app/User.php
 
 <?php
