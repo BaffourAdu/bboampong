@@ -113,7 +113,7 @@ php artisan make:model Article -m
 >
 > A [migration](https://laravel.com/docs/5.8/migrations) script defines the table structure needed to persist data in a database. 
 
-The `Article` model is implemented in the `Article.php` file that you will find inside the `app` directory. In fact, the `app` directory contains the code representing the application's domain. 
+The Article model is implemented in the `Article.php` file that you will find inside the `app` directory. In fact, the `app` directory contains the code representing the application's domain. 
 
 Once that’s done, open the migration file that was generated and update it's **up method** as below:
 ```php
