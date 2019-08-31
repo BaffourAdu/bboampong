@@ -16,15 +16,14 @@ API's have evolved and continue to evolve, of course. Stepping into modern API d
 
 * [Part 1: What is GraphQL and it's advantages? GraphQl vs REST](/how-to-build-a-graphql-server-using-laravel-part-1)
 * [Part 2: Setup our Laravel Project](/how-to-build-a-graphql-server-using-laravel-part-2)
-* [Part 3: Setup our GraphQL Server & Playground in our project](/#)
+* [Part 3: Setup our GraphQL Server & Playground in our project](/how-to-build-a-graphql-server-using-laravel-part-3)
 
 ## Why GraphQL?
  If you are afraid or think the word `GraphQL` sounds complicated and difficult, it isn't anymore. It isn't just the new kid on the block everyone is talking about, it's worth the hype. GraphQL is extremely handy when used to serve as an endpoint for different frontends such as mobile apps and single-page applications. You can create a GraphQL API in any programming language plus it's easy to setup in most major frameworks out there today.
   
 Most of us have been creating and using REST APIs for a long time now so one may ask, what’s with all the excitement, how is GraphQL even different than REST? Though REST is an **Architecture** and GraphQL is a **Specification**, both tools are used to build and interact with APIs. 
 
-> GraphQL is a data fetching specification that also functions as an API query language. It was created by Facebook back in 2012 to support their mobile application infrastructure and then open sourced in 2015.  — graphql.org
-
+> GraphQL is a data fetching specification that also functions as an API query language. This means that GraphQL is independent of any programming language. If you want to use it in your application, you need to choose among the several available implementations available in almost any language. It was created by Facebook back in 2012 to support their mobile application infrastructure and then open sourced in 2015.  — graphql.org
 
 GraphQL clients control the data they get, not the server, making it easier for APIs to evolve over time. While typical REST APIs require loading from multiple URLs or endpoints, GraphQL APIs get all the data your app needs in a single request to a single endpoint. 
 

@@ -17,7 +17,7 @@ In the [first part](/how-to-build-a-graphql-server-using-laravel-part-1) of this
 As mentioned in the previous article, this series is divided into 3 parts:
 * [Part 1: What is GraphQL and it's advantages? GraphQl vs REST](/how-to-build-a-graphql-server-using-laravel-part-1)
 * [Part 2: Setup our Laravel Project](/how-to-build-a-graphql-server-using-laravel-part-2)
-* [Part 3: Setup our GraphQL Server & Playground in our project](/#)
+* [Part 3: Setup our GraphQL Server & Playground in our project](/how-to-build-a-graphql-server-using-laravel-part-3)
 
 ## What we’ll be building
 In this project we’ll be building an API for a micro blog with which `users` can write `articles`. Furthermore, we would restrict certain features or functionality to only authenticated users.
@@ -245,7 +245,7 @@ php artisan make:seeder UsersTableSeeder
 ```
 > [Seeders](https://laravel.com/docs/5.8/seeding) are classes that populate database tables with some data. 
 
-The command above will generate a new file called `UsersTableSeeder.php` file in the `database/seeds` directory. Now let's update it with with the following:
+The command above will generate a new file called `UsersTableSeeder.php` file in `database/seeds` directory. Now let's update it with with the following:
 ```php
 // database/seeds/UsersTableSeeder.php
 
@@ -265,11 +265,6 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $faker = \Faker\Factory::create();
-        User::create([
-            'name' => $faker->name,
-            'email' => 'me@mygraphqlapp.com',
-            'password' => bcrypt('secret')
-        ]);
 
         factory(User::class, 50)->create()->each(function($user) use ($faker){
             for ($i=0; $i < 5; $i++) {
@@ -280,6 +275,12 @@ class UsersTableSeeder extends Seeder
                 ]);
             }
         });
+
+        User::create([
+            'name' => $faker->name,
+            'email' => 'me@mygraphqlapp.com',
+            'password' => bcrypt('secret')
+        ]);
     }
 }
 ```
@@ -287,8 +288,29 @@ class UsersTableSeeder extends Seeder
 >
 > Furthermore, using our default `User` [factories](https://laravel.com/docs/5.8/seeding#using-model-factories) which is located in the `database/factories` directory, we create `50 dummy users` and for each one of these `50 users`, `5 dummy articles` are created under them.
 
-Finally, let’s go ahead and run our database seeders to get some data into our database by running the command below in the terminal:
+To run our `UsersTableSeeder` let's update our `DatabaseSeeder.php` file `database/seeds` directory with the code below;
+```php
+// database/seeds/UsersTableSeeder.php
 
+<?php
+
+use Illuminate\Database\Seeder;
+
+class DatabaseSeeder extends Seeder
+{
+    /**
+     * Seed the application's database.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $this->call(UsersTableSeeder::class);
+    }
+}
+```
+
+Finally, let’s go ahead and run our database seeders to get some data into our database by running the command below in the terminal:
 ```bash
 php artisan db:seed
 ```
