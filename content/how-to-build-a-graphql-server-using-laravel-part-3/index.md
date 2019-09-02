@@ -1,6 +1,6 @@
 ---
 title: "How to build a GraphQL Server using Laravel - Part 3"
-description: "In this article, we build our GraphQL server using Laravel …"
+description: "In the final part of this series, we breakdown a few key terminologies in GraphQL as we setup our GraphQL API server using ... "
 date: "2019-08-31T16:54:58.194Z"
 categories: [
   laravel, GraphQL, APIs
@@ -12,18 +12,19 @@ published: true
 
 ---
 
-So far, we have understood what GraphQL is, it's advantages and compared it to REST. Furthermore, in the previous article, we setup our micro-blog's model and its database persistence. Now, it’s time to start building out our GraphQL server.
+In the first part of this series, we understood what GraphQL is, it's advantages and even went ahead to compare it with REST. In the previous article, we did setup our micro-blog's model and its database persistence. Now, it’s time to start building out our GraphQL server.
 
 >If you haven't read any of the previous articles, use the links below to catch up:
 > [Part 1: What is GraphQL and it's advantages? GraphQl vs REST](/how-to-build-a-graphql-server-using-laravel-part-1) ,
 > [Part 2: Setup our Laravel Project](/how-to-build-a-graphql-server-using-laravel-part-2) , 
 > [Part 3: Setup our GraphQL Server & Playground in our project](/how-to-build-a-graphql-server-using-laravel-part-3)
 
-I hope you are as excited as I was writing this. Just to give you a heads up, currently, there are several packages / libraries that makes it easy to setup a GraphQL server using Laravel, but for this article, we’re going to use [Lighthouse](https://github.com/nuwave/lighthouse). To keep this tutorial simple, our GraphQL API will only allow us to retrieve the list of Users seeded and a specific user.
- 
+I hope you are as excited as I was writing this. Just to give you a heads up, currently, there are several packages / libraries that makes it easy to setup a GraphQL server using Laravel, but for this article, we’re going to use [Lighthouse](https://github.com/nuwave/lighthouse). 
+
+To keep this tutorial simple, our GraphQL API will only allow us to retrieve the list of Users seeded in our database and details of specific user. 
 
 ## Terminologies in GraphQL
-Before we begin setting up our GraphQL server, let's first understand a few terminoligies you would come across alot in "GraphQL World": 
+Before we begin setting up our GraphQL server, let's first understand a few terminoligies you would come across in "GraphQL World": 
 
 #### 1. Types
 Data models in GraphQL are respresented as `Types`an they are strongly typed. Every GraphQL server defines a set of types which completely describe the set of possible data you can query on that service. Then, when queries come in, they are validated and executed against that schema. 
