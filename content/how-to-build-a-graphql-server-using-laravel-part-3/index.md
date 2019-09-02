@@ -293,6 +293,110 @@ When you hit the play button in the middle of the playground you’ll see the `J
 ```
 > Note: In this artice my response is shortend to only 10 results 
 
+## Paginating our API Response
+In a real world project, it's highly unlikely you will want to return all the users in your database especially if you have hundreds of thousands of users. Yes, we will need to implement pagination. If you take a look at the full reference of Lighthouse directive you would notice we have a `@paginate` directive readibly available to us to enable pagination.
+
+Now let's update our schema's query object by replacing `@all` with the `@paginte` directive:
+```
+type Query {
+  user(id: ID! @eq): User @first
+  users: [User!]! @paginte
+}
+```
+> Note: Lighthouse caches the schema so remember to clear it by running `php artisan lighthouse:clear-cache` after changes to the Schema file.
+
+Should you run the query to retrieve list of all users you should see an error message like:
+`Cannot query field\"id\" on type \"UserPaginator\".`
+
+I am sure you are asking yourself, why that error after adding the `@paginated` directive? Lighthouse behind the scenes changed the return type of the `users` field to get us a paginated set of results. Looking at the error message you can deduce the `user` field now returns an object of type `UserPaginator`.
+
+Below is the transformed schema definition after pagination:
+```
+type Query {
+  posts(first: Int!, page: Int): UserPaginator
+}
+
+type UserPaginator {
+  data: [User!]!
+  paginatorInfo: PaginatorInfo!
+}
+
+type PaginatorInfo {
+  count: Int!
+  currentPage: Int!
+  firstItem: Int
+  hasMorePages: Boolean!
+  lastItem: Int
+  lastPage: Int!
+  perPage: Int!
+  total: Int!
+}
+```
+> **Note**: You do not need to add this to your Schema, lighthouse already handles this transformation and returns the above object type with it's related fields.
+
+Now, our query to retrieve a list of users would change since lighthouse is transforming it behind the scenes.Our query would now look like this:
+```javascript
+query {
+  users(first:5, page:1) {
+    paginatorInfo {
+      total
+      currentPage
+      hasMorePages
+      perPage
+    }
+    data {
+      id
+      email
+      name
+    }
+  }
+}
+```
+
+And our results would look like:
+```json
+{
+  "data": {
+    "users": {
+      "paginatorInfo": {
+        "total": 51,
+        "currentPage": 1,
+        "hasMorePages": true,
+        "perPage": 5
+      },
+      "data": [
+        {
+          "id": "1",
+          "email": "schneider.august@example.org",
+          "name": "Rowland Schmeler Sr."
+        },
+        {
+          "id": "2",
+          "email": "kale.bernier@example.net",
+          "name": "Raegan Schultz"
+        },
+        {
+          "id": "3",
+          "email": "guiseppe.altenwerth@example.org",
+          "name": "Mozell Ankunding"
+        },
+        {
+          "id": "4",
+          "email": "udeckow@example.com",
+          "name": "Murray Cruickshank"
+        },
+        {
+          "id": "5",
+          "email": "flatley.kimberly@example.org",
+          "name": "Reid Douglas"
+        }
+      ]
+    }
+  }
+}
+```
+
+
 ## Retrieving a Specific User
 Now let’s try querying for a specific user with the `id` of 10:
 ```javascript
