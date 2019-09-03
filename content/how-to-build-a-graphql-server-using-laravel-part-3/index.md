@@ -383,7 +383,7 @@ And our results would look like:
 
 
 ## Retrieving a Specific User
-Now let’s try querying for a specific user with the `id` of 10:
+Now let’s try querying for a specific user details with the `id` of 10:
 ```javascript
 query {
   user(id: 10) {
@@ -408,7 +408,7 @@ And we’ll get the following output as the response of the query:
 ```
 
 ## Conclusion
-You would find the entire source code of this series [here](https://github.com/BaffourAdu/laravel-graphql-blog-api-server). In the repository, i would go a step further to use mutations and even setup authentication.  
+You would find the entire source code of this series [here](https://github.com/BaffourAdu/laravel-graphql-blog-api-server). In that repository, i go a step further to use mutations and even setup authentication.  
 
 I hope you enjoyed the entire series. Our aim was to understand GraphQL, build something with it so we could have a taste of it and it's enormous benefits. GraphQL might be new but I strongly believe is the future of APIs.
 
