@@ -21,13 +21,13 @@ In the first part of this series, we understood what GraphQL is, it's advantages
 
 I hope you are as excited as I was writing this. Just to give you a heads up, currently, there are several packages / libraries that makes it easy to setup a GraphQL server using Laravel, but for this article, we’re going to use [Lighthouse](https://github.com/nuwave/lighthouse). 
 
-To keep this tutorial simple, our GraphQL API will only allow us to retrieve the list of Users seeded in our database and details of specific user. 
+To keep this tutorial simple, our GraphQL API will only allow us to retrieve the list of Users seeded in our database and also details of specific user. 
 
 ## Terminologies in GraphQL
 Before we begin setting up our GraphQL server, let's first understand a few terminoligies you would come across in "GraphQL World": 
 
 #### 1. Types
-Data models in GraphQL are respresented as `Types`an they are strongly typed. Every GraphQL server defines a set of types which completely describe the set of possible data you can query on that service. Then, when queries come in, they are validated and executed against that schema. 
+Data models in GraphQL are respresented as `Types`. They are strongly typed. Every GraphQL server defines a set of types which completely describe the set of possible data you can query on that service. Then, when queries come in, they are validated and executed against that schema. 
 
 An example `Type` would be:
 ```javascript
@@ -35,7 +35,7 @@ type User {
     id: ID! # "!" means required or non-nullable
     name: String
     email: String
-    articles: [Article!]! # "[Article]" is another GraphQL type which returns an array of `Article` objects.
+    articles: [Article!]! # "[Article]" is another GraphQL type which returns an array of type `Article` objects.
 }
 ```
 > **Note**: There should always be a 1-to-1 mapping between your data models and GraphQL types.
@@ -43,29 +43,11 @@ type User {
 #### 2. Field
 A field is a unit of data you can retrieve from an object. According to the [official GraphQL docs](https://graphql.github.io/learn/queries/): "GraphQL is all about asking for specific fields on objects." 
 
-An example `Query` would be:
+An example `Field` would be:
 ```javascript
-query {
-  hero { # "hero" returns an Object 
-    name # "name" is a field on the returned Object  
-    appearsIn # "appearsIn" is a field on the returned Object  
-  }
-}
-```
-
-The results of the example `Query` above would be:
-```json
-{
-  "data": {
-    "hero": {
-      "name": "R2-D2",
-      "appearsIn": [
-        "NEWHOPE",
-        "EMPIRE",
-        "JEDI"
-      ]
-    }
-  }
+type Hero {  
+  name      # "name" is a field   
+  appearsIn # "appearsIn" is a field  
 }
 ```
 
@@ -91,7 +73,7 @@ type Query {
 ```
 
 #### 5. Mutations
-With `REST`, a [Query](/how-to-build-a-graphql-server-using-laravel-part-3/#4-queries) is equivalent to a `GET` request and `Mutations` are equivalent to `POST / PUT / PATCH / DELETE` requests. It's recommended that one doesn't use GET requests to modify data.GraphQL is similar. A `Query` reads data and a `Mutation` modifies or writes data.
+With `REST`, a [Query](/how-to-build-a-graphql-server-using-laravel-part-3/#4-queries) is equivalent to a `GET` request and `Mutations` are equivalent to `POST / PUT / PATCH / DELETE` requests. It's recommended that one doesn't use GET requests to modify data, GraphQL is similar. A `Query` reads data and a `Mutation` modifies or writes data.
 
 By convention, we put all our mutations in a root `Mutation` as shown below:
 ```javascript
@@ -116,14 +98,14 @@ type Mutation {
 #### 6. Schema
 Because the shape of a GraphQL query closely matches it's results, you can predict what the query will return without knowing that much about the server. But it's useful to have an exact description of the data we can ask for - what fields can we select? What kinds of objects might they return? What fields are available on those sub-objects? 
 
-That's where the schema comes in. Schemas describe how data are shaped and what data on the server can be queried. Simply put, the schema is what the GraphQL endpoint exposes to the world. A GraphQL API endpoint provides a complete description of what a client can query. Schemas can be of two types: Query and Mutation as seen below :
+That's where the schema comes in. Schemas describe how data are shaped and what data on the server can be queried. Simply put, the schema is what the GraphQL endpoint exposes to the world. A GraphQL API endpoint provides a complete description of what a client can query. Schemas can be of two types, that is, [Query](/how-to-build-a-graphql-server-using-laravel-part-3/#4-queries) and [Mutation](/how-to-build-a-graphql-server-using-laravel-part-3/#5-mutations) as seen below :
 ```javascript
 schema {
   query: Query
   mutation: Mutation
 }
 ```
-> This schema is strongly typed and this enables the autocomplete feature in GraphiQL (The GraphQL API Interactive Interface)
+> The schema is strongly typed and this enables the autocomplete feature in GraphiQL / GraphQL Playground (The GraphQL API Interactive Interface)
 
 #### 7. Resolvers
 Each field on a [Type](/how-to-build-a-graphql-server-using-laravel-part-3/#1-types) is backed by a function called a `Resolver`. When a [Field](/how-to-build-a-graphql-server-using-laravel-part-3/#2-field) is executed, it's corresponding `Resolver` is called. Basically, ` Resolvers` are the muscles behind GraphQL, they do the heavy lifting. They can;
@@ -203,7 +185,7 @@ Moreover, the second field in our query type called `users`, returns an array of
 App\User::all();
 ```
 ## Setup our GraphQL Playground
-To enable us test our GraphQL API we first have to install our GraphQL Playground. This playground allows us to query our GraphQL endpoint and provides us with all the benefits such as autocomplete, error highlightling, documentation, etc. However, you may use a standard client such as Postman or run cURL command in terminal but would loose all the benefits the playground provides.
+To enable us test our GraphQL API, we have to install our GraphQL Playground. This playground allows us to query our GraphQL endpoint and provides us with all the benefits such as autocomplete, error highlightling, documentation, etc. However, you may use a standard client such as Postman or run cURL command in terminal but would loose all the benefits the playground provides.
 
 To install the playground, run the command below in your terminal:
 ```
@@ -292,24 +274,26 @@ When you hit the play button in the middle of the playground you’ll see the `J
   }
 }
 ```
-> Note: In this artice my response is shortend to only 10 results 
+> Note: In the example above my response is shortend to only 10 results 
 
 ## Paginating our API Response
-In a real world project, it's highly unlikely you will want to return all the users in your database especially if you have hundreds of thousands of users. Yes, we will need to implement pagination. If you take a look at the full reference of Lighthouse directive you would notice we have a `@paginate` directive readibly available to us to enable pagination.
+In a real world project, it's highly unlikely you will want to return all the users in your database especially if you have hundreds of thousands of users. Yes, we will need to implement pagination. 
 
-Now let's update our schema's query object by replacing `@all` with the `@paginte` directive:
+If you take a look at the full reference of Lighthouse directive you would notice we have a `@paginate` directive readibly available to us to enable pagination.
+
+Now let's update our schema's query object by replacing `@all` with the `@paginate` directive:
 ```
 type Query {
   user(id: ID! @eq): User @first
-  users: [User!]! @paginte
+  users: [User!]! @paginate
 }
 ```
-> Note: Lighthouse caches the schema so remember to clear it by running `php artisan lighthouse:clear-cache` after changes to the Schema file.
+> **Note:** Lighthouse caches the schema file, therefore remember to clear it by running the command `php artisan lighthouse:clear-cache` everytime you udpate the Schema file.
 
 Should you run the query to retrieve list of all users you should see an error message like:
 `Cannot query field\"id\" on type \"UserPaginator\".`
 
-I am sure you are asking yourself, why that error after adding the `@paginated` directive? Lighthouse behind the scenes changed the return type of the `users` field to get us a paginated set of results. Looking at the error message you can deduce the `user` field now returns an object of type `UserPaginator`.
+I am sure you are asking yourself, why that error after adding the `@paginate` directive? Lighthouse behind the scenes changed the return type of the `users` field to get us a paginated set of results. Looking at the error message you can deduce the `user` field now returns an object of type `UserPaginator`.
 
 Below is the transformed schema definition after pagination:
 ```
@@ -333,9 +317,9 @@ type PaginatorInfo {
   total: Int!
 }
 ```
-> **Note**: You do not need to add this to your Schema, lighthouse already handles this transformation and returns the above object type with it's related fields.
+> **Note**: You do not need to add this to your Schema file, lighthouse already handles this transformation and returns the above object type with it's related fields.
 
-Now, our query to retrieve a list of users would change since lighthouse is transforming it behind the scenes.Our query would now look like this:
+Now, our query to retrieve a list of users would change since lighthouse is transforming it behind the scenes. Our query would now look like this:
 ```javascript
 query {
   users(first:5, page:1) {
