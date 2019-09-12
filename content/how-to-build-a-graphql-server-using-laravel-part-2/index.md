@@ -265,6 +265,12 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $faker = \Faker\Factory::create();
+        
+        User::create([
+            'name' => $faker->name,
+            'email' => 'me@mygraphqlapp.com',
+            'password' => bcrypt('secret')
+        ]);
 
         factory(User::class, 50)->create()->each(function($user) use ($faker){
             for ($i=0; $i < 5; $i++) {
@@ -275,12 +281,6 @@ class UsersTableSeeder extends Seeder
                 ]);
             }
         });
-
-        User::create([
-            'name' => $faker->name,
-            'email' => 'me@mygraphqlapp.com',
-            'password' => bcrypt('secret')
-        ]);
     }
 }
 ```
